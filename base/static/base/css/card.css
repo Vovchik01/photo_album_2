@@ -1,0 +1,55 @@
+.card {
+  display: grid;
+  grid-template-columns: 300px;
+  grid-template-rows: 200px 30px 150px 30px;
+  grid-template-areas: "image" "category" "description" "button";
+
+  font-family: roboto;
+  border-radius: 18px;
+  background: white;
+  box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.9);
+  text-align: center;
+
+  transition: 0.5s ease;
+
+  margin: 10px;
+}
+
+.card-image {
+  max-height: 200px;
+  max-width: 300px;
+  object-fit: cover;
+  background-size: cover;
+  grid-area: image;
+  border-top-left-radius: 15px;
+  border-top-right-radius: 15px;
+}
+
+.card-text-category {
+  grid-area: category;
+  margin-left: 5px;
+  margin-right: 5px;
+}
+
+.card-text-description {
+  grid-area: description;
+  margin: 5px;
+}
+
+.card-button-block {
+  grid-area: button;
+}
+
+.card-button {
+  text-decoration: none;
+  padding: 20px 50px;
+  font-style: 1.25rem;
+  background: grey;
+  color: honeydew;
+  border-radius: 30px;
+}
+
+.card:hover {
+  transform: scale(1.1);
+  box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.6);
+}

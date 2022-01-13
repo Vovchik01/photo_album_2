@@ -1,0 +1,66 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Vovchik</title>
+    <link rel="stylesheet" href="{% static '\base\css\add-photo.css' %}" />
+  </head>
+  <body>
+    <div class="container">
+      <a class="back-button" href="{% url 'index' %}">Back</a>
+      <form action="" method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+        <div class="form-group">
+          <input
+            required
+            name="img_upload"
+            type="file"
+            id="img_upload"
+            class="form-group__input"
+            autocomplete="off"
+            placeholder=""
+          />
+          <label for="img_upload" class="form-group__label">Upload</label>
+        </div>
+        <div class="form-group">
+          <input
+            name="description"
+            type="text"
+            id="description"
+            class="form-group__input"
+            autocomplete="off"
+            placeholder=""
+          />
+          <label for="description" class="form-group__label">Description</label>
+        </div>
+        <div class="form-group">
+          <select name="category" id="category" class="form-group__input" autocomplete="off" placeholder="">
+            <option value="none">Select category</option>
+            {% for category in categories %}
+            <option value="{{ category.id }}">{{ category.name }}</option>
+            {% endfor %}
+          </select>
+          <label for="category" class="form-group__label">Category</label>
+        </div>
+        <div class="form-group">
+          <input
+            name="add_category"
+            type="text"
+            id="add_category"
+            class="form-group__input"
+            autocomplete="off"
+            placeholder=""
+          />
+          <label for="add_category" class="form-group__label">Add a category</label>
+        </div>
+        <div class="form-group">
+          <button name="submit_btn" id="submit_btn" type="submit" class="form-group__input">Confirm</button>
+        </div>
+      </form>
+      <footer>
+        <p>Vovchik&copy</p>
+      </footer>
+    </div>
+  </body>
+</html>
